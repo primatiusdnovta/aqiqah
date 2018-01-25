@@ -25,14 +25,14 @@ if(empty($_SESSION['namauser']) AND empty($_SESSION['passuser'])){
 		<!--End-wrap--->";
 }
 else{
-	include "../../config/connection.php";
+	include "../../../config/connection.php";
     $module = $_GET['module'];
     $act = $_GET['act'];
 
      //input modul
     if($module=='modul' AND $act=='input'){
         //cari urutan akhir
-        $query = mysqli_query($konek,"SELECT urutan FROM modul ORDER BY urutan DESC LIMIT 1");
+        $query = mysqli_query($koneksi,"SELECT urutan FROM modul ORDER BY urutan DESC LIMIT 1");
         $r = mysqli_fetch_array($query);
         
         $urutan = $r['urutan']+1;
@@ -42,7 +42,7 @@ else{
         $input  = "INSERT modul SET nama_modul = '$nama_modul',
                                     link = '$link',
                                     urutan = '$urutan'";
-        mysqli_query($konek,$input);
+        mysqli_query($koneksi,$input);
         header("location:../../media.php?module=".$module);
     }
 }

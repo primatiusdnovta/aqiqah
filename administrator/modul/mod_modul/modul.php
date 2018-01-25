@@ -116,13 +116,13 @@ else{
                 <div class=\"form-group\">
                   <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">Nama Modul</label>
                   <div class=\"col-sm-10\">
-                    <input type=\"modul\" class=\"form-control\" id=\"modul\" placeholder=\"Nama Modul\">
+                    <input type=\"text\" name='nama_modul' class=\"form-control\" id=\"modul\" placeholder=\"Nama Modul\">
                   </div>
                 </div>
                 <div class=\"form-group\">
                   <label for=\"Link\" class=\"col-sm-2 control-label\">Link</label>
                   <div class=\"col-sm-10\">
-                    <input type=\"link\" class=\"form-control\" id=\"link\" placeholder=\"Link\">
+                    <input type=\"text\" class=\"form-control\" name=\"link\" id=\"link\" placeholder=\"Link\">
                   </div>
                 </div>
                 
@@ -145,6 +145,60 @@ else{
 		
 		case "editmodul":
 			
+
+
+			echo " <!-- Content Header (Page header) -->
+					<section class=\"content-header\">
+					  <h1>
+						Tambah Manajemen Modul
+					  </h1>
+					  <ol class=\"breadcrumb\">
+						<li><a href=\"?module=beranda\"><i class=\"fa fa-dashboard\"></i> Home</a></li>
+						<li class=\"active\">Data Modul</li>
+					  </ol>
+					</section>";
+		echo "<section class=\"content\">		
+			<div class=\"box\">
+				<div class=\"box-header with-border\">
+					<h3 class=\"box-title\">Tambah Data Modul</h3>
+					  <div class=\"box-tools pull-right\">
+						<button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"collapse\" data-toggle=\"tooltip\"
+								title=\"Collapse\">
+						  <i class=\"fa fa-minus\"></i></button>
+						<button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"remove\" data-toggle=\"tooltip\" title=\"Remove\">
+						  <i class=\"fa fa-times\"></i></button>
+					  </div>";
+		echo " <div class=\"box-body\">  
+			  <!-- form start -->
+            <form class=\"form-horizontal\" action=\"$aksi?module=modul&act=update\" method=\"POST\">
+              <div class=\"box-body\">
+                <div class=\"form-group\">
+                  <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">Nama Modul</label>
+                  <div class=\"col-sm-10\">
+                    <input type=\"text\" name='nama_modul' class=\"form-control\" id=\"modul\" placeholder=\"Nama Modul\">
+                  </div>
+                </div>
+                <div class=\"form-group\">
+                  <label for=\"Link\" class=\"col-sm-2 control-label\">Link</label>
+                  <div class=\"col-sm-10\">
+                    <input type=\"text\" class=\"form-control\" name=\"link\" id=\"link\" placeholder=\"Link\">
+                  </div>
+                </div>
+                
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class=\"box-footer\">
+                <button type=\"button\" class=\"btn btn-default\" onclick=\"self.history.back()\">Cancel</button>
+                <button type=\"submit\" class=\"btn btn-info pull-right\">Sign in</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>	  
+        </div>
+        <!-- /.box-body -->
+		</div>
+	
+		</section>";
 		break;
 	
 	
