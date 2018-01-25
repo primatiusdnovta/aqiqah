@@ -142,95 +142,40 @@ else{
 		</section>";			  
 		
 	break;
-		
-	//edit page	
-		case "editmodul":
-		  $query = "SELECT id_modul,nama_modul,link,status,aktif,urutan FROM modul WHERE id_modul = '$_GET[id]'";
-		  $hasil = mysqli_query($koneksi,$query);
-		  $r = mysqli_fetch_array($hasil);
-			echo " <!-- Content Header (Page header) -->
-					<section class=\"content-header\">
-					  <h1>
-						Tambah Manajemen Modul
-					  </h1>
-					  <ol class=\"breadcrumb\">
-						<li><a href=\"?module=beranda\"><i class=\"fa fa-dashboard\"></i> Home</a></li>
-						<li class=\"active\">Data Modul</li>
-					  </ol>
-					</section>";
-		echo "<section class=\"content\">		
-			<div class=\"box\">
-				<div class=\"box-header with-border\">
-					<h3 class=\"box-title\">Tambah Data Modul</h3>
-					  <div class=\"box-tools pull-right\">
-						<button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"collapse\" data-toggle=\"tooltip\"
-								title=\"Collapse\">
-						  <i class=\"fa fa-minus\"></i></button>
-						<button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"remove\" data-toggle=\"tooltip\" title=\"Remove\">
-						  <i class=\"fa fa-times\"></i></button>
-					  </div>";
-		echo " <div class=\"box-body\">  
-			  <!-- form start -->
-            <form class=\"form-horizontal\" action=\"$aksi?module=modul&act=update\" method=\"POST\">
-            <input type=\"hidden\" name='id' value=\"$r[id_modul]\">
-              <div class=\"box-body\">
-                <div class=\"form-group\">
-                  <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">Nama Modul</label>
-                  <div class=\"col-sm-10\">
-                    <input type=\"text\" name='nama_modul' class=\"form-control\" id=\"modul\" placeholder=\"Nama Modul\" value=\"$r[nama_modul]\">
-                  </div>
-                </div>
-
-                <div class=\"form-group\">
-                  <label for=\"Link\" class=\"col-sm-2 control-label\">Link</label>
-                  <div class=\"col-sm-10\">
-                    <input type=\"text\" class=\"form-control\" name=\"link\" id=\"link\" placeholder=\"Link\" value=\"$r[link]\">
-                  </div>
-                </div>";
-                
-                 if($r['status']=='admin'){
-				           echo "<div class=\"form-group radio\">
-				                    <label class='col-sm-2 control-label'>Status</label>
-				                  
-				                        <input type=\"radio\" name=\"status\"  value=\"admin\" checked>
-				                        Admin
-				                           <input type=\"radio\" name=\"status\"  value=\"user\">
-				                        User
-				                   
-				                </div>";
-				       }
-				       else{
-				           echo "<div class=\"form-group\">
-				                    <label class='col-sm-2 control-label'>
-				                        <input type=\"radio\" name=\"status\"  value=\"admin\">
-				                        Admin
-				                    </label>
-				                </div>
-				                <div class=\"radio\">
-				               
-				                    <label>
-				                        <input type=\"radio\" name=\"status\"  value=\"user\" checked>
-				                        User
-				                    </label>
-				                </div>";
-				      }
-                
-
-                echo "</div>
-              </div>
-              <!-- /.box-body -->
-              <div class=\"box-footer\">
-                <button type=\"button\" class=\"btn btn-default\" onclick=\"self.history.back()\">Cancel</button>
-                <button type=\"submit\" class=\"btn btn-info pull-right\">Sign in</button>
-              </div>
-              <!-- /.box-footer -->
-            </form>	  
-        </div>
-        <!-- /.box-body -->
-		</div>
 	
-		</section>";
-		break;
+	//edit page
+	case "editmodul":	
+		 $r    = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM modul WHERE id_modul='$_GET[id]'"));
+  		echo "<div class='col-md-12'>
+              <div class='box box-info'>
+                <div class='box-header with-border'>
+                  <h3 class='box-title'>Edit Modul</h3>
+                </div>
+              <div class='box-body'>
+              <form class='form-horizontal' role='form' method=POST action='$aksi?module=modul&act=update' enctype='multipart/form-data'>
+                <div class='col-md-12'>
+                  <table class='table table-condensed table-bordered'>
+                  <tbody>
+                  <input type=hidden name=id value='$r[id_modul]'>
+                    <tr><th width='120px' scope='row'>Nama Modul</th><td><input type='text' class='form-control' name='nama_modul' value='$r[nama_modul]' required></td></tr>
+                    <tr><th scope='row'>Link</th>                   <td><input type='text' class='form-control' name='link' value='$r[link]'></td></tr>
+                   
+                    <tr><th scope='row'>Aktif</th>                  <td>"; if ($r['aktif']=='Y'){ echo "<input type='radio' name='aktif' value='Y' checked> Ya &nbsp; <input type='radio' name='aktif' value='N'> Tidak"; }else{ echo "<input type='radio' name='aktif' value='Y'> Ya &nbsp; <input type='radio' name='aktif' value='N' checked> Tidak"; } echo "</td></tr>
+                    <tr><th scope='row'>Status</th>                 <td>"; if ($r['status']=='admin'){ echo "<input type='radio' name='status' value='admin' checked> Admin &nbsp; <input type='radio' name='status' value='user'> User"; }else{ echo "<input type='radio' name='status' value='admin'> Admin &nbsp; <input type='radio' name='status' value='user' checked> User"; } echo "</td></tr>
+                    <tr><th scope='row'>Urutan</th>                 <td><input type='text' class='form-control' name='urutan' value='$r[urutan]'></td></tr>
+                  </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class='box-footer'>
+                    <button type='submit' name='submit' class='btn btn-info'>Update</button>
+                    <button type=\"button\" class='btn btn-default pull-right' onclick=\"self.history.back()\">Cancel</button>
+              </div>
+            </div>
+          </div>
+          <div style='clear:both'></div>";
+  
+  break;
 	
 	
 	}//end switch
