@@ -24,5 +24,7 @@
 		<!--End-wrap--->";
 }
 else{
-	
+	 include "../../config/koneksi.php";
+    $module = $_GET['module'];
+    $act = $_GET['act'];
 }
