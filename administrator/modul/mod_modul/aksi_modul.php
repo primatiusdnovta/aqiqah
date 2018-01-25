@@ -43,8 +43,28 @@ else{
                                     link = '$link',
                                     urutan = '$urutan',
                                     status = 'user'";
-                                    
+
         mysqli_query($koneksi,$input);
+        header("location:../../media.php?module=".$module);
+    }
+
+    //update modul 
+     //update modul
+    elseif($module=='modul' AND $act=='update'){
+        $id         = $_POST['id'];
+        $urutan     = $_POST['urutan'];
+        $nama_modul = $_POST['nama_modul'];
+        $link       = $_POST['link'];
+        $status     = $_POST['status'];
+        $aktif      = $_POST['aktif'];
+        
+        $update = "UPDATE modul SET nama_modul  = '$nama_modul',
+                                    link = '$link',
+                                    urutan = '$urutan',
+                                    status = '$status', 
+                                    aktif = '$aktif'
+                        WHERE id_modul = '$id'";
+        mysqli_query($koneksi,$update);
         header("location:../../media.php?module=".$module);
     }
 }
