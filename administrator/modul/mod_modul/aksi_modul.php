@@ -24,7 +24,24 @@
 		<!--End-wrap--->";
 }
 else{
-	 include "../../config/koneksi.php";
+	include "../../config/connection.php";
     $module = $_GET['module'];
     $act = $_GET['act'];
+
+     //input modul
+    if($module=='modul' AND $act=='input'){
+        //cari urutan akhir
+        $query = mysqli_query($konek,"SELECT urutan FROM modul ORDER BY urutan DESC LIMIT 1");
+        $r = mysqli_fetch_array($query);
+        
+        $urutan = $r['urutan']+1;
+        $nama_modul = $_POST['nama_modul'];
+        $link = $_POST['link'];
+        
+        $input  = "INSERT modul SET nama_modul = '$nama_modul',
+                                    link = '$link',
+                                    urutan = '$urutan'";
+        mysqli_query($konek,$input);
+        header("location:../../media.php?module=".$module);
+    }
 }
