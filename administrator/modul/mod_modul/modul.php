@@ -143,10 +143,11 @@ else{
 		
 	break;
 		
+	//edit page	
 		case "editmodul":
-			
-
-
+		  $query = "SELECT id_modul,nama_modul,link,status,aktif,urutan FROM modul WHERE id_modul = '$_GET[id]'";
+		  $hasil = mysqli_query($koneksi,$query);
+		  $r = mysqli_fetch_array($hasil);
 			echo " <!-- Content Header (Page header) -->
 					<section class=\"content-header\">
 					  <h1>
@@ -171,6 +172,7 @@ else{
 		echo " <div class=\"box-body\">  
 			  <!-- form start -->
             <form class=\"form-horizontal\" action=\"$aksi?module=modul&act=update\" method=\"POST\">
+            <input type=\"hidden\" name='id' value=\"$r[id_modul]\">
               <div class=\"box-body\">
                 <div class=\"form-group\">
                   <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">Nama Modul</label>
