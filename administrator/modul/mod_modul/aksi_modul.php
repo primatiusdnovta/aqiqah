@@ -41,7 +41,9 @@ else{
         
         $input  = "INSERT modul SET nama_modul = '$nama_modul',
                                     link = '$link',
-                                    urutan = '$urutan'";
+                                    urutan = '$urutan',
+                                    status = 'user'";
+                                    
         mysqli_query($koneksi,$input);
         header("location:../../media.php?module=".$module);
     }

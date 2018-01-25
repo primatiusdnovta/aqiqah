@@ -177,17 +177,46 @@ else{
                 <div class=\"form-group\">
                   <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">Nama Modul</label>
                   <div class=\"col-sm-10\">
-                    <input type=\"text\" name='nama_modul' class=\"form-control\" id=\"modul\" placeholder=\"Nama Modul\">
+                    <input type=\"text\" name='nama_modul' class=\"form-control\" id=\"modul\" placeholder=\"Nama Modul\" value=\"$r[nama_modul]\">
                   </div>
                 </div>
+
                 <div class=\"form-group\">
                   <label for=\"Link\" class=\"col-sm-2 control-label\">Link</label>
                   <div class=\"col-sm-10\">
-                    <input type=\"text\" class=\"form-control\" name=\"link\" id=\"link\" placeholder=\"Link\">
+                    <input type=\"text\" class=\"form-control\" name=\"link\" id=\"link\" placeholder=\"Link\" value=\"$r[link]\">
                   </div>
-                </div>
+                </div>";
                 
-                </div>
+                 if($r['status']=='admin'){
+				           echo "<div class=\"form-group radio\">
+				                    <label class='col-sm-2 control-label'>Status</label>
+				                  
+				                        <input type=\"radio\" name=\"status\"  value=\"admin\" checked>
+				                        Admin
+				                           <input type=\"radio\" name=\"status\"  value=\"user\">
+				                        User
+				                   
+				                </div>";
+				       }
+				       else{
+				           echo "<div class=\"form-group\">
+				                    <label class='col-sm-2 control-label'>
+				                        <input type=\"radio\" name=\"status\"  value=\"admin\">
+				                        Admin
+				                    </label>
+				                </div>
+				                <div class=\"radio\">
+				               
+				                    <label>
+				                        <input type=\"radio\" name=\"status\"  value=\"user\" checked>
+				                        User
+				                    </label>
+				                </div>";
+				      }
+                
+
+                echo "</div>
               </div>
               <!-- /.box-body -->
               <div class=\"box-footer\">
