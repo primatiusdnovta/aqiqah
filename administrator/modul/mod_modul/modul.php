@@ -12,7 +12,7 @@
 			<!---End-header---->
 			<!--start-content------>
 			<div class=\"content\">
-				<img src=\"images/error-img.png\" title=\"error\" />
+				<img src=\"../../images/error-img.png\" title=\"error\" />
 				<p><span><label>O</label>hh.....</span>Please Login, Before Access This Page !!!</p>
 				<a href=\"index.php\">Back To Home</a>
 				<div class=\"copy-right\">
