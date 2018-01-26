@@ -73,7 +73,7 @@ else {
                         $k     = mysqli_fetch_array($query);
                       ?>
                       <input type="hidden" name="id" value="<?php echo $k['id_kategori'] ?>">
-                      <input type="text" class="form-control" name="nm" id="nm" value="<?php echo $k['nm_kategori'] ?>" placeholder="Isi disini..." autocomplete="off" onclick="this.select()">
+                      <input type="text" class="form-control" name="nm" id="nm" value="<?php echo $k['nama_kategori'] ?>" placeholder="Isi disini..." autocomplete="off" onclick="this.select()">
                     </div>
                   </div>
                 </div>
@@ -125,7 +125,7 @@ else {
                       while ($k = mysqli_fetch_array($query)) :
                     ?>
                       <tr>
-                        <td><?php echo $k['nm_kategori'] ?></td>
+                        <td><?php echo $k['nama_kategori'] ?></td>
                         <td align="center">
                           <div class="btn-group">
                             <a href="modul/mod_kategori/aksi.php?action=delete&sub=<?php echo $k['id_kategori'] ?>" class="btn btn-default" title="Hapus Data?">

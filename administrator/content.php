@@ -56,6 +56,12 @@
 				include "modul/mod_kategori/kategori.php";
 			}
 		}
+		elseif($_GET['module']=='tag'){
+			if($_SESSION['leveluser']=='admin'){
+				include "modul/mod_tag/tag.php";
+			}
+		}
+		
 		
 		
 	}
